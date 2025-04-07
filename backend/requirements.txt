@@ -1,0 +1,6 @@
+Flask
+oss2
+SQLAlchemy
+flask_sqlalchemy
+pymysql
+flask-cors
