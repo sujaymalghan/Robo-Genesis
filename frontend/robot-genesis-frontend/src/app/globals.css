@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* styles.css */
+.battle-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.battle-field {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.robot-container {
+  position: relative;
+  height: 300px;
+}
+
+.robot-model {
+  width: 150px;
+  height: 200px;
+  background: #555;
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.robot-model.fire { background: #ff4422; }
+.robot-model.water { background: #2299ff; }
+.robot-model.electric { background: #ffdd00; }
+.robot-model.plasma { background: #aa00ff; }
+
+.hp-bar {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  height: 10px;
+  background: #333;
+}
+
+.hp-fill {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s ease;
+}
+
+.action-buttons {
+  grid-column: span 2;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  background: #2196F3;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.special-effect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.special-effect.fire { background: rgba(255,68,34,0.3); }
+.special-effect.water { background: rgba(34,153,255,0.3); }
+.special-effect.electric { background: rgba(255,221,0,0.3); }
+.special-effect.plasma { background: rgba(170,0,255,0.3); }
+
+.battle-log {
+  grid-column: span 2;
+  height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
